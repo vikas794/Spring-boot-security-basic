@@ -45,7 +45,7 @@ public class JwtSecurityConfig {
             .csrf(AbstractHttpConfigurer::disable) // CSRF disabled for stateless JWT
             .cors(cors -> cors.configure(http))    // Optional CORS config
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/h2-console/**", "/debug/**", "/error").permitAll()
+                .requestMatchers("/api/auth/**", "/h2-console/**", "/debug/**", "/error", "/api/demo/public").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
