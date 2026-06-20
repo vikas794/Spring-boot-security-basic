@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.security.LearningPlatformApplicationTests" time="1.351" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.security.api.DemoControllerTest" time="0.167" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -43,7 +43,7 @@
     <property name="localRepository" value="/home/jules/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
     <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="21.0.10"/>
     <property name="user.dir" value="/app"/>
     <property name="os.arch" value="amd64"/>
@@ -60,37 +60,18 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[learning-platform] "/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.security.LearningPlatformApplicationTests" time="0.008">
-    <system-out><![CDATA[2026-06-20T20:22:43.794Z  INFO 144666 --- [learning-platform] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.security.LearningPlatformApplicationTests]: LearningPlatformApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-06-20T20:22:43.798Z  INFO 144666 --- [learning-platform] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.security.LearningPlatformApplication for test class com.example.security.LearningPlatformApplicationTests
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.5)
-
-2026-06-20T20:22:43.856Z  INFO 144666 --- [learning-platform] [           main] c.e.s.LearningPlatformApplicationTests   : Starting LearningPlatformApplicationTests using Java 21.0.10 with PID 144666 (started by jules in /app)
-2026-06-20T20:22:43.860Z  INFO 144666 --- [learning-platform] [           main] c.e.s.LearningPlatformApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-2026-06-20T20:22:44.273Z  INFO 144666 --- [learning-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-20T20:22:44.294Z  INFO 144666 --- [learning-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 1 JPA repository interface.
-2026-06-20T20:22:44.436Z  INFO 144666 --- [learning-platform] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-20T20:22:44.438Z  INFO 144666 --- [learning-platform] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-20T20:22:44.443Z  INFO 144666 --- [learning-platform] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-20T20:22:44.444Z  INFO 144666 --- [learning-platform] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2026-06-20T20:22:44.446Z  INFO 144666 --- [learning-platform] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:securitydb user=SA
-2026-06-20T20:22:44.446Z  INFO 144666 --- [learning-platform] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2026-06-20T20:22:44.447Z  WARN 144666 --- [learning-platform] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-20T20:22:44.495Z  INFO 144666 --- [learning-platform] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-20T20:22:44.499Z  INFO 144666 --- [learning-platform] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-Hibernate: select count(*) from users u1_0
-2026-06-20T20:22:44.657Z  WARN 144666 --- [learning-platform] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-20T20:22:44.848Z  INFO 144666 --- [learning-platform] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2026-06-20T20:22:44.878Z  INFO 144666 --- [learning-platform] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5575b4c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c89b58, org.springframework.security.web.context.SecurityContextHolderFilter@5596f2bb, org.springframework.security.web.header.HeaderWriterFilter@662b17b3, org.springframework.web.filter.CorsFilter@472cf6af, org.springframework.web.filter.CorsFilter@1fab1909, org.springframework.security.web.authentication.logout.LogoutFilter@762cfcc1, com.example.security.api.RateLimitFilter@67807d9a, com.example.security.auth.jwt.JwtAuthenticationFilter@27523869, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31b273b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6dc6608c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7eb3ba2, org.springframework.security.web.session.SessionManagementFilter@5128197f, org.springframework.security.web.access.ExceptionTranslationFilter@2040722f, org.springframework.security.web.access.intercept.AuthorizationFilter@6c67a17d]
-2026-06-20T20:22:45.043Z  INFO 144666 --- [learning-platform] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:securitydb'
-2026-06-20T20:22:45.130Z  INFO 144666 --- [learning-platform] [           main] c.e.s.LearningPlatformApplicationTests   : Started LearningPlatformApplicationTests in 1.329 seconds (process running for 10.207)
+  <testcase name="adminEndpoint_ShouldBeUnauthorizedForAnonymous" classname="com.example.security.api.DemoControllerTest" time="0.007">
+    <system-out><![CDATA[2026-06-20T20:22:43.624Z  INFO 144666 --- [learning-platform] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.security.api.DemoControllerTest]: DemoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-20T20:22:43.634Z  INFO 144666 --- [learning-platform] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.security.LearningPlatformApplication for test class com.example.security.api.DemoControllerTest
 ]]></system-out>
   </testcase>
+  <testcase name="abacEndpoint_ShouldBeAccessibleForValidResource" classname="com.example.security.api.DemoControllerTest" time="0.064"/>
+  <testcase name="abacEndpoint_ShouldBeUnauthorizedForAnonymous" classname="com.example.security.api.DemoControllerTest" time="0.007"/>
+  <testcase name="adminEndpoint_ShouldBeForbiddenForNormalUser" classname="com.example.security.api.DemoControllerTest" time="0.012"/>
+  <testcase name="adminEndpoint_ShouldBeAccessibleByAdmin" classname="com.example.security.api.DemoControllerTest" time="0.01"/>
+  <testcase name="protectedEndpoint_ShouldBeAccessibleByAuthenticatedUser" classname="com.example.security.api.DemoControllerTest" time="0.008"/>
+  <testcase name="publicEndpoint_ShouldBeAccessibleByAnyone" classname="com.example.security.api.DemoControllerTest" time="0.007"/>
+  <testcase name="protectedEndpoint_ShouldBeUnauthorizedForAnonymous" classname="com.example.security.api.DemoControllerTest" time="0.006"/>
+  <testcase name="abacEndpoint_ShouldBeAccessibleForAnyResourceByAdmin" classname="com.example.security.api.DemoControllerTest" time="0.008"/>
+  <testcase name="abacEndpoint_ShouldBeForbiddenForInvalidResource" classname="com.example.security.api.DemoControllerTest" time="0.008"/>
 </testsuite>

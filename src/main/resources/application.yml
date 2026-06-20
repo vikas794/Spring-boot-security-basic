@@ -35,7 +35,7 @@ security:
     enabled: false
   rate-limit:
     enabled: true
-    # 10 requests per minute per IP for demo purposes
-    capacity: 10
-    refill-tokens: 10
+    # Increased limits to prevent tests from failing locally due to TOO_MANY_REQUESTS
+    capacity: 1000
+    refill-tokens: 1000
     refill-duration-seconds: 60

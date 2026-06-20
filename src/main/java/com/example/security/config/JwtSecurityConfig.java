@@ -47,7 +47,7 @@ public class JwtSecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // WHY: Explicitly restrict access to sensitive admin endpoints like debug and database console.
                 .requestMatchers("/h2-console/**", "/debug/**").hasRole("ADMIN")
-                .requestMatchers("/api/auth/**", "/error").permitAll()
+                .requestMatchers("/api/auth/**", "/error", "/api/demo/public").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
