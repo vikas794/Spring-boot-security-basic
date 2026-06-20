@@ -7,6 +7,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.Base64;
 
@@ -34,7 +35,7 @@ public class DataSecurityUtil {
             GCMParameterSpec parameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
 
             cipher.init(Cipher.ENCRYPT_MODE, secretKey, parameterSpec);
-            byte[] encryptedData = cipher.doFinal(data.getBytes("UTF-8"));
+            byte[] encryptedData = cipher.doFinal(data.getBytes(StandardCharsets.UTF_8));
 
             ByteBuffer byteBuffer = ByteBuffer.allocate(iv.length + encryptedData.length);
             byteBuffer.put(iv);
@@ -63,7 +64,7 @@ public class DataSecurityUtil {
 
             cipher.init(Cipher.DECRYPT_MODE, secretKey, parameterSpec);
 
-            return new String(cipher.doFinal(cipherText), "UTF-8");
+            return new String(cipher.doFinal(cipherText), StandardCharsets.UTF_8);
         } catch (Exception e) {
             throw new RuntimeException("Error while decrypting", e);
         }
