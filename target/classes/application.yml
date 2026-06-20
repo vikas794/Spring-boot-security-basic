@@ -8,7 +8,7 @@ spring:
     url: jdbc:h2:mem:securitydb
     driverClassName: org.h2.Driver
     username: sa
-    password: password
+    password: ${DB_PASSWORD}
   h2:
     console:
       enabled: true
