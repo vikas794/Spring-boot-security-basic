@@ -1,1 +1,2 @@
 /app/src/test/java/com/example/security/LearningPlatformApplicationTests.java
+/app/src/test/java/com/example/security/auth/jwt/JwtServiceBenchmarkTest.java

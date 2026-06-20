@@ -18,9 +18,15 @@ import java.util.function.Function;
 public class JwtService {
 
     private final SecurityProperties securityProperties;
+    private final SecretKey secretKey;
 
     public JwtService(SecurityProperties securityProperties) {
         this.securityProperties = securityProperties;
+
+        // Cache the secret key at initialization time to improve performance
+        // by avoiding repeated base64 decoding on every token operation.
+        byte[] keyBytes = Decoders.BASE64.decode(securityProperties.getJwt().getSecret());
+        this.secretKey = Keys.hmacShaKeyFor(keyBytes);
     }
 
     public String extractUsername(String token) {
@@ -68,7 +74,6 @@ public class JwtService {
     }
 
     private SecretKey getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(securityProperties.getJwt().getSecret());
-        return Keys.hmacShaKeyFor(keyBytes);
+        return this.secretKey;
     }
 }
