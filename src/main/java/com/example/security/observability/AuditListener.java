@@ -19,8 +19,10 @@ public class AuditListener {
 
     @EventListener
     public void onAuthenticationFailure(AbstractAuthenticationFailureEvent event) {
-        log.warn("Audit Log: Authentication Failure for user: {} due to {}",
-                event.getAuthentication().getName(),
-                event.getException().getMessage());
+        // WHY: We log a generic failure message without the exception details
+        // to prevent potential exposure of sensitive system state or detailed error
+        // reasons that could be exploited by an attacker (e.g. for user enumeration).
+        log.warn("Audit Log: Authentication Failure for user: {}",
+                event.getAuthentication().getName());
     }
 }
