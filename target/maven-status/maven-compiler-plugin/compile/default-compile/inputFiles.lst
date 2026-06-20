@@ -5,6 +5,7 @@
 /app/src/main/java/com/example/security/core/AuthResponse.java
 /app/src/main/java/com/example/security/config/SecurityConfig.java
 /app/src/main/java/com/example/security/api/DemoController.java
+/app/src/main/java/com/example/security/auth/CaptchaService.java
 /app/src/main/java/com/example/security/authorization/AbacPermissionEvaluator.java
 /app/src/main/java/com/example/security/core/Role.java
 /app/src/main/java/com/example/security/debug/DebugController.java

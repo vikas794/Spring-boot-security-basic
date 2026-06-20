@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -34,16 +35,18 @@ public class AuthController {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final TokenRevocationService tokenRevocationService;
+    private final CaptchaService captchaService;
 
     private final Map<String, Integer> loginAttempts = new ConcurrentHashMap<>();
     private static final int MAX_ATTEMPTS = 5;
 
-    public AuthController(AuthenticationManager authenticationManager, JwtService jwtService, UserRepository userRepository, PasswordEncoder passwordEncoder, TokenRevocationService tokenRevocationService) {
+    public AuthController(AuthenticationManager authenticationManager, JwtService jwtService, UserRepository userRepository, PasswordEncoder passwordEncoder, TokenRevocationService tokenRevocationService, CaptchaService captchaService) {
         this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.tokenRevocationService = tokenRevocationService;
+        this.captchaService = captchaService;
     }
 
     @PostConstruct
@@ -65,7 +68,9 @@ public class AuthController {
         }
 
         // CAPTCHA Placeholder: in production, validate a captcha token here
-        // if (!captchaService.isValid(request.getCaptchaToken())) { ... }
+        if (!captchaService.isValid(request.getCaptchaToken())) {
+            throw new BadCredentialsException("Invalid CAPTCHA");
+        }
 
         try {
             Authentication authentication = authenticationManager.authenticate(
