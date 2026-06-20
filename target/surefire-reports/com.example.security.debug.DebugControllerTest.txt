@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.security.debug.DebugControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.683 s -- in com.example.security.debug.DebugControllerTest

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.security.LearningPlatformApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.151 s -- in com.example.security.LearningPlatformApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.442 s -- in com.example.security.LearningPlatformApplicationTests

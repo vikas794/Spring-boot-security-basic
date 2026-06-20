@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.security.LearningPlatformApplicationTests" time="1.442" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.security.debug.DebugControllerTest" time="8.683" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -43,7 +43,7 @@
     <property name="localRepository" value="/home/jules/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
     <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="21.0.10"/>
     <property name="user.dir" value="/app"/>
     <property name="os.arch" value="amd64"/>
@@ -60,9 +60,9 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[learning-platform] "/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.security.LearningPlatformApplicationTests" time="0.008">
-    <system-out><![CDATA[2026-06-20T19:31:13.634Z  INFO 33850 --- [learning-platform] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.security.LearningPlatformApplicationTests]: LearningPlatformApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-06-20T19:31:13.642Z  INFO 33850 --- [learning-platform] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.security.LearningPlatformApplication for test class com.example.security.LearningPlatformApplicationTests
+  <testcase name="testAdminAccess" classname="com.example.security.debug.DebugControllerTest" time="0.738">
+    <system-out><![CDATA[19:31:05.157 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.security.debug.DebugControllerTest]: DebugControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:31:05.332 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.security.LearningPlatformApplication for test class com.example.security.debug.DebugControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -72,25 +72,41 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2026-06-20T19:31:13.671Z  INFO 33850 --- [learning-platform] [           main] c.e.s.LearningPlatformApplicationTests   : Starting LearningPlatformApplicationTests using Java 21.0.10 with PID 33850 (started by jules in /app)
-2026-06-20T19:31:13.671Z  INFO 33850 --- [learning-platform] [           main] c.e.s.LearningPlatformApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-2026-06-20T19:31:13.981Z  INFO 33850 --- [learning-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-20T19:31:13.991Z  INFO 33850 --- [learning-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
-2026-06-20T19:31:14.135Z  INFO 33850 --- [learning-platform] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-20T19:31:14.137Z  INFO 33850 --- [learning-platform] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-20T19:31:14.141Z  INFO 33850 --- [learning-platform] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-20T19:31:14.142Z  INFO 33850 --- [learning-platform] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2026-06-20T19:31:14.144Z  INFO 33850 --- [learning-platform] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:securitydb user=SA
-2026-06-20T19:31:14.164Z  INFO 33850 --- [learning-platform] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2026-06-20T19:31:14.165Z  WARN 33850 --- [learning-platform] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-20T19:31:14.217Z  INFO 33850 --- [learning-platform] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-20T19:31:14.221Z  INFO 33850 --- [learning-platform] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-20T19:31:05.861Z  INFO 33850 --- [learning-platform] [           main] c.e.security.debug.DebugControllerTest   : Starting DebugControllerTest using Java 21.0.10 with PID 33850 (started by jules in /app)
+2026-06-20T19:31:05.863Z  INFO 33850 --- [learning-platform] [           main] c.e.security.debug.DebugControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-06-20T19:31:07.083Z  INFO 33850 --- [learning-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-20T19:31:07.145Z  INFO 33850 --- [learning-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.
+2026-06-20T19:31:08.093Z  INFO 33850 --- [learning-platform] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-20T19:31:08.155Z  INFO 33850 --- [learning-platform] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-06-20T19:31:08.190Z  INFO 33850 --- [learning-platform] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-20T19:31:08.444Z  INFO 33850 --- [learning-platform] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-20T19:31:08.474Z  INFO 33850 --- [learning-platform] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-20T19:31:08.681Z  INFO 33850 --- [learning-platform] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:securitydb user=SA
+2026-06-20T19:31:08.684Z  INFO 33850 --- [learning-platform] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-20T19:31:08.711Z  WARN 33850 --- [learning-platform] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-20T19:31:09.714Z  INFO 33850 --- [learning-platform] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table users (id bigint generated by default as identity, password varchar(255) not null, role varchar(255) check (role in ('USER','ADMIN')), ssn varchar(255), username varchar(255) not null, primary key (id))
+Hibernate: alter table if exists users drop constraint if exists UK_r43af9ap4edm43mmtq01oddj6
+Hibernate: alter table if exists users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username)
+2026-06-20T19:31:09.794Z  INFO 33850 --- [learning-platform] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 Hibernate: select count(*) from users u1_0
-2026-06-20T19:31:14.393Z  WARN 33850 --- [learning-platform] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-20T19:31:14.740Z  INFO 33850 --- [learning-platform] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2026-06-20T19:31:14.778Z  INFO 33850 --- [learning-platform] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@401358e5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d2af40, org.springframework.security.web.context.SecurityContextHolderFilter@29788adf, org.springframework.security.web.header.HeaderWriterFilter@786c7cc9, org.springframework.web.filter.CorsFilter@2d68af14, org.springframework.web.filter.CorsFilter@4a24170b, org.springframework.security.web.authentication.logout.LogoutFilter@5e30ea7c, com.example.security.api.RateLimitFilter@10aabada, com.example.security.auth.jwt.JwtAuthenticationFilter@193bf20, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@337f76ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20c048cc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69ebb009, org.springframework.security.web.session.SessionManagementFilter@520a8ea1, org.springframework.security.web.access.ExceptionTranslationFilter@7d893815, org.springframework.security.web.access.intercept.AuthorizationFilter@7817824d]
-2026-06-20T19:31:15.008Z  INFO 33850 --- [learning-platform] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:securitydb'
-2026-06-20T19:31:15.061Z  INFO 33850 --- [learning-platform] [           main] c.e.s.LearningPlatformApplicationTests   : Started LearningPlatformApplicationTests in 1.414 seconds (process running for 10.773)
+Hibernate: insert into users (password,role,ssn,username,id) values (?,?,?,?,default)
+Hibernate: insert into users (password,role,ssn,username,id) values (?,?,?,?,default)
+2026-06-20T19:31:11.135Z  WARN 33850 --- [learning-platform] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-20T19:31:11.784Z  INFO 33850 --- [learning-platform] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-06-20T19:31:11.907Z  INFO 33850 --- [learning-platform] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@344db28d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4420f4d4, org.springframework.security.web.context.SecurityContextHolderFilter@1f4dce67, org.springframework.security.web.header.HeaderWriterFilter@22a9fa23, org.springframework.web.filter.CorsFilter@126320a8, org.springframework.web.filter.CorsFilter@4bb05e2a, org.springframework.security.web.authentication.logout.LogoutFilter@76a2db3f, com.example.security.api.RateLimitFilter@12b0440b, com.example.security.auth.jwt.JwtAuthenticationFilter@517594dd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62a5e4c7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f511a8e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a98983b, org.springframework.security.web.session.SessionManagementFilter@20bc72af, org.springframework.security.web.access.ExceptionTranslationFilter@9b84747, org.springframework.security.web.access.intercept.AuthorizationFilter@3ad142f0]
+2026-06-20T19:31:12.442Z  INFO 33850 --- [learning-platform] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:securitydb'
+2026-06-20T19:31:12.529Z  INFO 33850 --- [learning-platform] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-20T19:31:12.530Z  INFO 33850 --- [learning-platform] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-20T19:31:12.532Z  INFO 33850 --- [learning-platform] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-06-20T19:31:12.724Z  INFO 33850 --- [learning-platform] [           main] c.e.security.debug.DebugControllerTest   : Started DebugControllerTest in 7.223 seconds (process running for 8.434)
 ]]></system-out>
+    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/jules/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.13/byte-buddy-agent-1.14.13.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
   </testcase>
+  <testcase name="testUserAccess" classname="com.example.security.debug.DebugControllerTest" time="0.018"/>
+  <testcase name="testUnauthenticatedAccess" classname="com.example.security.debug.DebugControllerTest" time="0.011"/>
 </testsuite>

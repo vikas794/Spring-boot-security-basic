@@ -45,7 +45,9 @@ public class JwtSecurityConfig {
             .csrf(AbstractHttpConfigurer::disable) // CSRF disabled for stateless JWT
             .cors(cors -> cors.configure(http))    // Optional CORS config
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/h2-console/**", "/debug/**", "/error").permitAll()
+                // WHY: Explicitly restrict access to sensitive admin endpoints like debug and database console.
+                .requestMatchers("/h2-console/**", "/debug/**").hasRole("ADMIN")
+                .requestMatchers("/api/auth/**", "/error").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
