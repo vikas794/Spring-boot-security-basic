@@ -14,20 +14,25 @@ import java.util.Base64;
 @Component
 public class DataSecurityUtil {
 
-    private final byte[] keyBytes;
-
     private static final int GCM_IV_LENGTH = 12;
     private static final int GCM_TAG_LENGTH = 128;
 
+    private final byte[] keyBytes;
+    private final SecretKeySpec secretKey;
+
     // Inject encryption key from properties, provide a default 16-byte key for demo purposes
-    public DataSecurityUtil(@Value("${security.data.encryption.key:1234567890123456}") String aesKey) {
+    public DataSecurityUtil(@Value("${security.data.encryption.key}") String aesKey) {
+        if (aesKey == null || aesKey.getBytes().length != 16) {
+            throw new IllegalArgumentException("Encryption key must be exactly 16 bytes (128 bits) long.");
+        }
         this.keyBytes = aesKey.getBytes();
+        // Cache immutable SecretKeySpec for performance
+        this.secretKey = new SecretKeySpec(this.keyBytes, "AES");
     }
 
     public String encryptField(String data) {
         if (data == null) return null;
         try {
-            SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
             Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
 
             byte[] iv = new byte[GCM_IV_LENGTH];
@@ -58,7 +63,6 @@ public class DataSecurityUtil {
             byte[] cipherText = new byte[byteBuffer.remaining()];
             byteBuffer.get(cipherText);
 
-            SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
             Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
             GCMParameterSpec parameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
 
