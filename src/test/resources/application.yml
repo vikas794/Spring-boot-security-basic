@@ -1,0 +1,4 @@
+security:
+  data:
+    encryption:
+      key: "testkey123456789"

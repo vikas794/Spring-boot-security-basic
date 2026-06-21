@@ -53,8 +53,10 @@ public class AuthController {
     public void init() {
         // Initialize dummy users for testing
         if (userRepository.count() == 0) {
-            userRepository.save(new User("user", passwordEncoder.encode("password"), Role.USER));
-            userRepository.save(new User("admin", passwordEncoder.encode("password"), Role.ADMIN));
+            userRepository.saveAll(java.util.List.of(
+                new User("user", passwordEncoder.encode("password"), Role.USER),
+                new User("admin", passwordEncoder.encode("password"), Role.ADMIN)
+            ));
         }
     }
 
